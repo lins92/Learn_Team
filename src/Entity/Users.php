@@ -27,14 +27,14 @@ class Users
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private $password;
+
+    /**
      * @ORM\Column(type="string", length=15, nullable=true)
      */
     private $phone;
-
-    /**
-     * @ORM\Column(type="string", length=70)
-     */
-    private $password;
 
     /**
      * @ORM\Column(type="datetime")
@@ -75,18 +75,6 @@ class Users
         return $this;
     }
 
-    public function getPhone(): ?string
-    {
-        return $this->phone;
-    }
-
-    public function setPhone(?string $phone): self
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
     public function getPassword(): ?string
     {
         return $this->password;
@@ -95,6 +83,18 @@ class Users
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }

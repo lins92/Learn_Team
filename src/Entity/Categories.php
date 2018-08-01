@@ -19,12 +19,12 @@ class Categories
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=70)
+     * @ORM\Column(type="string", length=45)
      */
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Lesson", mappedBy="idcategories")
+     * @ORM\OneToMany(targetEntity="App\Entity\Lessons", mappedBy="categories_idcategories")
      */
     private $lessons;
 
@@ -49,17 +49,15 @@ class Categories
 
         return $this;
     }
-
-
     /**
-     * @return Collection|Lesson[]
-     */
+     * @return Collection|Lessons[]
+    */
     public function getLessons(): Collection
     {
         return $this->lessons;
     }
 
-    public function addLesson(Lesson $lesson): self
+    public function addLesson(Lessons $lesson): self
     {
         if (!$this->lessons->contains($lesson)) {
             $this->lessons[] = $lesson;
@@ -69,7 +67,7 @@ class Categories
         return $this;
     }
 
-    public function removeLesson(Lesson $lesson): self
+    public function removeLesson(Lessons $lesson): self
     {
         if ($this->lessons->contains($lesson)) {
             $this->lessons->removeElement($lesson);
